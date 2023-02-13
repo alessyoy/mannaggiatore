@@ -10,5 +10,7 @@ do
 done
 
 OUTPUT=$(shuf -n 1 $OUTFILE)
+echo ""
 echo "Mannaggia a" $OUTPUT
+echo ""
 > $OUTFILE
