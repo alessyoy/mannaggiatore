@@ -20,7 +20,7 @@ while getopts ":h:s:" o; do
     esac
 done
 
-LISTA_SANTI=$(curl -v --silent https://www.santodelgiorno.it/ 2>&1 | grep -o "\/san[a-z\/-]*" | sed -e 's/\///g' -e 's/-/ /g' -e 's/novena//g' -e "s/sant /sant\'/g" -e 's/\b\(.\)/\u\1/g' -e 's/ E / e /g' | egrep -vi "^santo$" | egrep -vi "^santod[a-zA-Z].{1,8}" | egrep -vi "^santuario$" | sort --unique)
+LISTA_SANTI=$(curl -v --silent "https://www.santodelgiorno.it/" 2>&1 | grep -o '/san[a-z/-]*' | sed -e 's/\///g' -e 's/-/ /g' -e 's/novena//g' -e "s/sant /sant\'/g" -e 's/\b\(.\)/\u\1/g' -e 's/ E / e /g' | grep -Evi '^santo$' | grep -Evi '^santod[a-zA-Z].{1,8}' | grep -Evi '^santuario$' | sort --unique)
 
 OUTFILE=/tmp/filesanto
 
