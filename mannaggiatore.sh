@@ -5,7 +5,7 @@
 
 usage() { echo "Bestemmia con stile, un santo diverso ogni volta!" 1>&2 ; exit 1; }
 
-while getopts ":h:s:" o; do
+while getopts "hs" o; do
     case "${o}" in
 	h) usage
 	   exit 0
